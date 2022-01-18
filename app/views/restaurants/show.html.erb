@@ -7,3 +7,9 @@
 <p><%= @restaurant.address %>
 
 <h2><%= link_to "Leave a Review", new_restaurant_review_path(@restaurant.id) %>
+
+<h1>Reviews</h1>
+<% @restaurant.reviews.each do |review| %>
+  <%= "⭐️"*review.rating %>
+  <%= review.content %>
+<% end %>
