@@ -1,0 +1,26 @@
+<div class="navbar">
+  <h1 id="home"><%= link_to "My Restaurants", restaurants_path %></h1>
+  <h2 id="new-restaurant"><%= link_to "New Restaurant", new_restaurant_path %></h2>
+</div>
+<h1>Add a Restaurant</h2>
+<div id="form">
+  <%= form_for(@restaurant, class: 'form') do |f| %>
+    <div id="form-name">
+      <p>Name</p>
+      <%= f.text_field :name %>
+    </div>
+    <div id="form-category">
+      <p>Category</p>
+      <%= f.select :category, ["chinese", "italian", "japanese", "french", "belgian"] %>
+    </div>
+    <div id="form-address">
+      <p>Address</p>
+      <%= f.text_area :address, data: { editor: 'markdown' }, rows: 10 %>
+    </div>
+    <div id="form-btn">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back', restaurants_path %>
